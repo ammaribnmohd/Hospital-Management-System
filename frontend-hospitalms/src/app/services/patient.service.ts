@@ -2,22 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Patient } from '../models/patient';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
-  getPatients() {
-    throw new Error('Method not implemented.');
-  }
 
-  private baseUrl ="http://localhost:8080/api/v1";
+  private apiUrl = `${environment.baseUrl}/v1`;
   constructor(private http: HttpClient) { 
-    console.log('API URL:', this.baseUrl); // Debug log
+    console.log('API URL:', this.apiUrl);
   }
 
   getPatientsList(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.baseUrl}`);
+    return this.http.get<Patient[]>(`${this.apiUrl}`);
   }
 
 }
