@@ -24,12 +24,12 @@ public class AppointmentController {
 		this.appointmentsRepository = appointmentsRepository;
 	}
 	
-	@PostMapping("/insert")
+	@PostMapping("/appointments")
 	public Appointment createAppointment(@RequestBody Appointment appointment) {
 		return appointmentsRepository.save(appointment);
 	}
 	
-	@GetMapping
+	@GetMapping("/appointments")
 	public List<Appointment> getAllAppointments() {
         return appointmentsRepository.findAll();
 	}

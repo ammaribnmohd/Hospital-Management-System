@@ -14,10 +14,10 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
   
   getAllAppointments():Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(`${this.baseUrl}`);
+    return this.http.get<Appointment[]>(`${this.baseUrl}/appointments`);
   }
   createAppointment(appointment: Appointment): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.baseUrl}`, appointment);
+    return this.http.post<Appointment>(`${this.baseUrl}/appointments`, appointment);
   }
 
 
