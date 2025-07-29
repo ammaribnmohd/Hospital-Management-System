@@ -9,13 +9,13 @@ import { environment } from '../../environments/environment';
 })
 export class PatientService {
 
-  private apiUrl = `${environment.baseUrl}/v1`;
+  private baseUrl = `${environment.apiUrl}/v1`;
   constructor(private http: HttpClient) { 
-    console.log('API URL:', this.apiUrl);
+    console.log('API URL:', this.baseUrl);
   }
 
   getPatientsList(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.apiUrl}`);
+    return this.http.get<Patient[]>(`${this.baseUrl}`);
   }
 
 }

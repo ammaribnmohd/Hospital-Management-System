@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { provideHttpClient } from '@angular/common/http';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdmindashComponent
+    AdmindashComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
