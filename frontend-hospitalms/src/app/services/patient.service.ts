@@ -11,11 +11,12 @@ export class PatientService {
 
   private baseUrl = `${environment.apiUrl}/v1`;
   constructor(private http: HttpClient) { 
-    console.log('API URL:', this.baseUrl);
   }
 
   getPatientsList(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.baseUrl}`);
+    return this.http.get<Patient[]>(`${this.baseUrl}/patients`);
   }
-
+  deletePatient(id: number): Observable<object> {
+    return this.http.delete(`${this.baseUrl}/patients/${id}`);
+  }
 }

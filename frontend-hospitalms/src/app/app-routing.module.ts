@@ -3,9 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdmindashComponent } from './admindash/admindash.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-
+  {
+    path: "", redirectTo: "home", pathMatch: "full"
+  },
+  {
+    path: "home", component: HomeComponent
+  },
   { path: 'admin', component: AdmindashComponent },
   {
     path: "appointmentlist", component: AppointmentComponent
@@ -13,6 +19,7 @@ const routes: Routes = [
   {
     path: "create-appointment", component: CreateAppointmentComponent
   },
+  
 ];
 
 @NgModule({

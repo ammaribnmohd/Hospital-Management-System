@@ -16,8 +16,13 @@ export class AppointmentService {
   getAllAppointments():Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.baseUrl}/appointments`);
   }
+  
   createAppointment(appointment: Appointment): Observable<Appointment> {
     return this.http.post<Appointment>(`${this.baseUrl}/appointments`, appointment);
+  }
+
+  deleteAppointment(id: number): Observable<object> {
+    return this.http.delete(`${this.baseUrl}/appointments/${id}`);
   }
 
 

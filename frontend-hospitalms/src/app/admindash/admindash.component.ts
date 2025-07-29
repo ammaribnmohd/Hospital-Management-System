@@ -6,22 +6,18 @@ import { Patient } from '../models/patient';
   selector: 'app-admindash',
   standalone: false,
   templateUrl: './admindash.component.html',
-  styleUrl: './admindash.component.css'
+  styleUrl: './admindash.component.css',
 })
 export class AdmindashComponent {
-
   patients: Patient[] = [];
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService) {}
 
-   }
-
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.getPatients();
   }
 
-
-   getPatients() {
+  getPatients() {
     this.patientService.getPatientsList().subscribe(
       (data: any) => {
         this.patients = data;
@@ -31,5 +27,11 @@ export class AdmindashComponent {
         console.log(error);
       }
     );
+  }
+  delete(id: number) {
+    this.patientService.deletePatient(id).subscribe((data) => {
+      console.log('Patient deleted successfully', data);
+      this.getPatients();
+    });
   }
 }
